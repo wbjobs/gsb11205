@@ -1,0 +1,107 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: #f0f1f5;
+  overflow: hidden;
+}
+
+#toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #1f2233;
+  color: #fff;
+  flex: none;
+}
+
+.brand { font-weight: 600; margin-right: 8px; }
+
+#color-picker { display: flex; gap: 6px; }
+#color-picker button {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+#color-picker button.active { border-color: #fff; }
+
+#toolbar button, #layers-panel button {
+  background: #343852;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+#toolbar button:hover, #layers-panel button:hover { background: #4a5078; }
+#toolbar button.active { background: #e94560; }
+
+.tool { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+
+main { flex: 1; display: flex; min-height: 0; }
+
+#canvas-wrap { flex: 1; position: relative; background: #fff; }
+#board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+#layers-panel {
+  width: 180px;
+  flex: none;
+  background: #fff;
+  border-left: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+#layer-list { overflow-y: auto; }
+
+.layer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2;
+}
+.layer-row.active { background: #e8ecff; }
+.layer-name { flex: 1; font-size: 13px; }
+.layer-row button {
+  background: none;
+  color: #999;
+  padding: 0 4px;
+  font-size: 16px;
+}
+.layer-row button:hover { color: #e94560; background: none; }
+
+#statusbar {
+  flex: none;
+  display: flex;
+  gap: 20px;
+  padding: 6px 14px;
+  background: #1f2233;
+  color: #9ea3c0;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+#statusbar .hint { margin-left: auto; }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRDT 协同白板</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="toolbar">
+    <span class="brand">协同白板</span>
+    <div id="color-picker">
+      <button data-color="#1a1a2e" class="active" style="background:#1a1a2e" title="黑"></button>
+      <button data-color="#e94560" style="background:#e94560" title="红"></button>
+      <button data-color="#0f9b8e" style="background:#0f9b8e" title="绿"></button>
+      <button data-color="#f5a623" style="background:#f5a623" title="橙"></button>
+      <button data-color="#4a6fa5" style="background:#4a6fa5" title="蓝"></button>
+    </div>
+    <label class="tool">
+      笔宽 <input id="brush-size" type="range" min="1" max="30" value="4">
+    </label>
+    <button id="btn-eraser" title="橡皮擦">橡皮</button>
+    <button id="btn-undo" title="撤销 (Ctrl+Z)">撤销</button>
+    <button id="btn-redo" title="重做 (Ctrl+Shift+Z)">重做</button>
+    <button id="btn-export" title="导出 PNG">导出</button>
+    <button id="btn-stress" title="生成 10000 笔迹压测">压测 10k</button>
+  </header>
+  <main>
+    <div id="canvas-wrap">
+      <canvas id="board"></canvas>
+    </div>
+    <aside id="layers-panel">
+      <div class="panel-head">
+        <span>图层</span>
+        <button id="btn-add-layer" title="新建图层">＋</button>
+      </div>
+      <div id="layer-list"></div>
+    </aside>
+  </main>
+  <footer id="statusbar">
+    <span id="stat-fps">FPS --</span>
+    <span id="stat-latency">同步延迟 --</span>
+    <span id="stat-strokes">笔迹 0/0</span>
+    <span id="stat-mem">内存 ~0MB</span>
+    <span class="hint">多开 4 个标签页即可协同绘制</span>
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
